@@ -1,0 +1,76 @@
+﻿@model Hall_Boking_System.Models.Customer
+
+@{
+    var customerId =  ViewBag.CustomersId;
+    var adminId = ViewBag.AdminId;
+
+    if(adminId !=null)
+    {
+        Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+    }
+}
+<h1>My Profile</h1>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@*@foreach (var item in Model){*@
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Password)
+            </td>
+            <td>
+              <img src=@Url.Content("~/Images/"+Model.UserImage) style="border-radius:20%;" width="100" height="100" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.PhoneNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+@*                <a asp-action="Details" asp-route-id="@Model.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>*@
+            </td>
+        </tr>
+    </tbody>
+</table>

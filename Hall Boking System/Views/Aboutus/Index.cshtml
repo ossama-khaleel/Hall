@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Hall_Boking_System.Models.Aboutu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+
+@*<p>
+    <a asp-action="Create"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></a>
+</p>*@
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+@*            <th>
+                @Html.DisplayNameFor(model => model.Home)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.Home.HomeImage1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-paint-brush" aria-hidden="true"></i></a>@* |
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info" aria-hidden="true"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-ban" aria-hidden="true"></i></a>
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>

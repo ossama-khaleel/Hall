@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Hall_Boking_System.Models.Visa>
+
+@{
+         Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+         var name = ViewBag.CustomersName;
+}
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VisaNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VisaAmount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisaNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisaAmount)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

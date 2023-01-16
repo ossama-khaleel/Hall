@@ -1,0 +1,92 @@
+﻿@*@model IEnumerable<Hall_Boking_System.Models.UserLogin>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customers.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.RoleName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@
+@model IEnumerable<Hall_Boking_System.Models.JoinTable>
+@{
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+
+<table class="table">
+                        <thead>
+                            <tr>
+                                <th>First Name </th> 
+                                <th>Last Name </th>
+                                <th>UserName </th>
+                                <th>Password </th>
+                                <th>Image </th>
+                                <th>Phonenumber </th>
+                                <th>Email </th>
+                                <th>Role Name </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.customer.FirstName</td>
+                                    <td>@item.customer.LastName</td>
+                                    <td>@item.customer.UserName</td>
+                                    <td>@item.customer.Password</td>
+                                    <td><img src=@Url.Content("~/images/"+item.customer.UserImage) width=100 height=100 /></td>
+                                    <td>@item.customer.PhoneNumber</td>
+                                    <td>@item.customer.Email</td>
+                                    <td>@item.role.RoleName</td>
+                                    <td>
+                       <a asp-action="Edit" asp-controller="UserLogins" asp-route-id="@item.userLogin.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> 
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>

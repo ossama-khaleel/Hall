@@ -1,0 +1,52 @@
+﻿@model Hall_Boking_System.Models.Customer
+
+@{
+    Layout = "~/Views/Shared/LoginAndRegestration.cshtml";
+}
+			<form method="POST" asp-action="Register" enctype="multipart/form-data" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+				<span class="login100-form-title">
+					Sign Up
+				</span>
+				<div  class="wrap-input100 validate-input m-b-16" data-validate="Please Enter First Name">
+					<input asp-for="FirstName" class="input100" type="text" placeholder="First Name">
+					<span asp-validation-for="FirstName" class="focus-input100"></span>
+				</div>
+				<div  class="wrap-input100 validate-input m-b-16" data-validate="Please Enter Last Name">
+					<input asp-for="LastName" class="input100" type="text" placeholder="Last Nmae">
+					<span asp-validation-for="LastName" class="focus-input100"></span>
+				</div>
+				<div  class="wrap-input100 validate-input m-b-16" data-validate="Please Enter User Name">
+					<input class="input100" type="text" id="username" name="username" placeholder="User Name">
+					<span class="focus-input100"></span>
+				</div>					
+				<div  class="wrap-input100 validate-input m-b-16" data-validate="Please Enter Email">
+					<input asp-for="Email" class="input100" type="email" placeholder="Email">
+					<span asp-validation-for="Email" class="focus-input100"></span>
+				</div>
+				<div  class="wrap-input100 validate-input m-b-16" data-validate="Please Enter Phone Number">
+					<input asp-for="PhoneNumber" class="input100" type="tel" placeholder="Phone Number">
+					<span asp-validation-for="PhoneNumber" class="focus-input100"></span>
+				</div>
+				<div  class="wrap-input100 validate-input m-b-16" data-validate="Please Enter User Image">
+					<input asp-for="ImageFile" class="input100">
+					<span  asp-validation-for="ImageFile" class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Please Enter password">
+					<input class="input100" type="password" name="password" id="password" placeholder="Password">
+					<span class="focus-input100"></span>
+				</div>
+				<br />
+				<div class="container-login100-form-btn">
+				<button class="login100-form-btn">
+					Sign Up
+				</button>
+				</div>
+				<div class="flex-col-c p-t-170 p-b-40">
+					<span class="txt1 p-b-9">
+						I have an account?
+					</span>
+					<a  asp-action="Login" asp-controller="LoginAndRegestration" class="txt3">
+						Sign In
+					</a>
+				</div>
+			</form>

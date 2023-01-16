@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Hall_Boking_System.Models.Acceptance>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AcceptDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acceptlist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hall)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcceptDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acceptlist.AcceptStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customers.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hall.HallName)
+            </td>
+            <td>
+                    @if (item.AcceptlistId == 3)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

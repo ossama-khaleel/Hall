@@ -1,0 +1,41 @@
+﻿@model Hall_Boking_System.Models.Payment
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Payment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PaymentAmount" class="control-label"></label>
+                <input asp-for="PaymentAmount" class="form-control" />
+                <span asp-validation-for="PaymentAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomersId" class="control-label"></label>
+                <select asp-for="CustomersId" class="form-control" asp-items="ViewBag.CustomersId"></select>
+                <span asp-validation-for="CustomersId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisaId" class="control-label"></label>
+                <select asp-for="VisaId" class="form-control" asp-items="ViewBag.VisaId"></select>
+                <span asp-validation-for="VisaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

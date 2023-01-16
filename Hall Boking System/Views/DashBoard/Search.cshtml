@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Hall_Boking_System.Models.Acceptance>
+
+@{
+   Layout = "~/Views/Shared/AdminDashboardLayout.cshtml";
+}
+
+<div class="col-lg-12 col-md-12">
+   <div class="card">
+      <div class="card-header card-header-primary" style="background: linear-gradient(60deg);">         
+           <div class="row">
+               <div class="col-7">
+                   <form action="Search" method="post">
+                       <label for="startDate">Start date</label>
+                       <input  type="date" class="form-control" name="startDate" placeholder="Start Date" style="width: 170px;"/>
+                        <label for="endDate">End Date</label>
+                       <input  type="date" class="form-control" name="endDate" placeholder="End Date" style="width: 170px;"/>
+                       <br />
+                       <button type="submit" class="btn btn-primary"> search</button>
+                   </form>
+               </div>
+           </div>
+           <br />
+           <br />
+           <div class="row">
+                <div class="col-12">
+                    <table class="table table" id="example">
+                        <thead class="table-dark">
+                            <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Hall Name</th>
+                            <th>Date In</th>
+                            <th>Date Out</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model){
+                    
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Customers.FirstName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Customers.LastName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Hall.HallName)
+                                    </td>
+                                     <td>
+                                        @Html.DisplayFor(modelItem => item.Reservation.DateIn)
+                                    </td>
+                                     <td>
+                                        @Html.DisplayFor(modelItem => item.Reservation.DateOut)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+           </div>
+      </div>
+   </div>
+</div>
+
+@*<div class="col-lg-12 col-md-12">
+             <div class="card">
+                  <div class="card-header card-header-primary" style="background: linear-gradient(60deg, #167f5d, #913f9e);">
+                     <div class="row">
+                         <form action="Search" method="post" class="navbar-form">
+                            <span class="bmd-form-group">
+                                <div class="input-group no-border">
+                                    <div class="col-5">
+                                        <div class="form-group">
+                                            <label for="startDate" style="color:white;"><b>Start Date</b></label>
+                                            <input type="date" value="" class="form-control" name="startDate" placeholder="Start Date">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="col-5">
+                                        <div class="form-group" >
+                                            <label  for="endDate" style="color:white;"><b>End Date</b></label>
+                                            <input type="date" value="" class="form-control" name="endDate" placeholder="End Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group" style="margin-top:25px;">
+                                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                                <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                         </form>
+                     </div>
+
+                  </div>
+                  <div class="card-body table-responsive">
+                      <table class="table" id="example">
+                             <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Hall Name</th>
+                                    <th>DateIn</th>
+                                    <th>DateOut</th>
+                                </tr>
+                             </thead>
+                            <tbody>
+
+                                @foreach(var item in Model )
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Customers.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Customers.LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Hall.HallName)
+                                        </td>
+                                          <td>
+                                            @Html.DisplayFor(modelItem => item.Reservation.DateIn)
+                                        </td>
+                                           <td>
+                                            @Html.DisplayFor(modelItem => item.Reservation.DateOut)
+                                        <td>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                      </table>
+                  </div>
+             </div>
+</div>*@

@@ -1,0 +1,28 @@
+﻿@model Hall_Boking_System.Models.Visa
+
+@{
+        Layout = "~/Views/Shared/UserDashboardLayout.cshtml";
+   var name = ViewBag.CustomersName;
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="VisaNumber" class="control-label"></label>
+                <input asp-for="VisaNumber" class="form-control" />
+                <span asp-validation-for="VisaNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisaAmount" class="control-label"></label>
+                <input asp-for="VisaAmount" class="form-control" />
+                <span asp-validation-for="VisaAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

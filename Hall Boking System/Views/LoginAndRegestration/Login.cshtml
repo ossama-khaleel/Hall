@@ -1,0 +1,32 @@
+﻿@model Hall_Boking_System.Models.UserLogin
+
+@{
+    Layout = "~/Views/Shared/LoginAndRegestration.cshtml";
+}
+				<form method="POST" asp-action="Login" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<span class="login100-form-title">
+						Sign In
+					</span>
+					<div  class="wrap-input100 validate-input m-b-16" data-validate="Please Enter User Name">
+						<input asp-for="UserName"  class="input100" placeholder="User name">
+						<span asp-validation-for="UserName" class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Please Enter Password">
+						<input asp-for="Password" class="input100" type="password" placeholder="Password">
+						<span asp-validation-for="Password" class="focus-input100"></span>
+					</div>
+					<br />
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Sign in
+						</button>
+					</div>
+					<div class="flex-col-c p-t-170 p-b-40">
+						<span class="txt1 p-b-9">
+							Don’t have an account?
+						</span>
+						<a  asp-action="Register" asp-controller="LoginAndRegestration" class="txt3">
+							Sign up now
+						</a>
+					</div>
+				</form>
